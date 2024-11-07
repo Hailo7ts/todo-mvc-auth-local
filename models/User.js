@@ -1,6 +1,7 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt')//hashes/salts password
 const mongoose = require('mongoose')
 
+//all users have userName, email and hashed password
 const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },

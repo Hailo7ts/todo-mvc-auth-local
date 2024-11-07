@@ -68,6 +68,7 @@ const User = require('../models/User')
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
   
+    //grab info from for create new User for db
     const user = new User({
       userName: req.body.userName,
       email: req.body.email,

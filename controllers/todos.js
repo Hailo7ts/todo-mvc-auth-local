@@ -1,7 +1,9 @@
 const Todo = require('../models/Todo')
 
 module.exports = {
+    //Read
     getTodos: async (req,res)=>{
+        //req.user shows user is logged in gives user unique ids
         console.log(req.user)
         try{
             const todoItems = await Todo.find({userId:req.user.id})
@@ -11,6 +13,7 @@ module.exports = {
             console.log(err)
         }
     },
+    //Create
     createTodo: async (req, res)=>{
         try{
             await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
@@ -20,17 +23,19 @@ module.exports = {
             console.log(err)
         }
     },
+    //Update
     markComplete: async (req, res)=>{
         try{
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
                 completed: true
-            })
+            }) //find one todo from db that matchs id
             console.log('Marked Complete')
-            res.json('Marked Complete')
+            res.json('Marked Complete')//response is sent to client side js
         }catch(err){
             console.log(err)
         }
     },
+    //Update
     markIncomplete: async (req, res)=>{
         try{
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
@@ -42,6 +47,7 @@ module.exports = {
             console.log(err)
         }
     },
+    //Delete
     deleteTodo: async (req, res)=>{
         console.log(req.body.todoIdFromJSFile)
         try{

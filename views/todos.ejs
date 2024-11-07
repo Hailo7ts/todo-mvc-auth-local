@@ -10,8 +10,15 @@
 <body>
     <h1>Todos</h1>
     <ul>
+        <!--Loop each todo-->
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
+
+                <!--
+                    Conditional determines if todos class is completed or not
+                    Todos start as not and when clicked client-side js listens for click on span in an li 
+                    with a class of todoItem.
+                -->
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span class='del'> Delete </span>
             </li>
