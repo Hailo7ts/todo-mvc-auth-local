@@ -4,6 +4,9 @@ const app = express()
 //import mongoose to use mongodb
 const mongoose = require('mongoose')
 const passport = require('passport') //import for user authentication
+//import mongoose to use mongodb
+const mongoose = require('mongoose')
+const passport = require('passport') //import for user authentication
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 
