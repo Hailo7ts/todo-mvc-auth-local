@@ -1,15 +1,12 @@
 //import express
 const express = require('express')
 const app = express()
-
-const mongoose = require('mongoose') //import mongoose to interact with mongodb
-const passport = require('passport') //import for user authentication and strategies
-
-//help to have logged in users
+//import mongoose to use mongodb
+const mongoose = require('mongoose')
+const passport = require('passport') //import for user authentication
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-
-const flash = require('express-flash') //
+const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
