@@ -5,6 +5,9 @@ const connectDB = async () => {
   try {
     //connect to db via DB_STRING
     const conn = await mongoose.connect(process.env.DB_STRING, {
+      /**
+       * SUBMIT PULL REQUEST TO UPDATE THE BELOW BLOCK OF CODE THAT IS OUTDATED
+       */
       useNewUrlParser: true, //mongoose will use new MongoDB connection string parser
       useUnifiedTopology: true, //enables unified topology layer for better compatibility
       useFindAndModify: false, //disables deprecated funcion

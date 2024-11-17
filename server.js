@@ -6,21 +6,24 @@ const mongoose = require('mongoose')
 const passport = require('passport') //import for user authentication
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-const flash = require('express-flash')
-const logger = require('morgan')
-const connectDB = require('./config/database')
+
+const flash = require('express-flash') //validates login/signup format and flashes error for password length..ect
+const logger = require('morgan')//logs whats happening
+const connectDB = require('./config/database')//db connection
+//routing 
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
-
 
 //import to use .env file
 require('dotenv').config({path: './config/.env'})
 
-// Passport config
+//Passport config
 require('./config/passport')(passport)
 
+//connect to database
 connectDB()
 
+//
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
